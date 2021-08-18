@@ -1,0 +1,9 @@
+body {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 80, 80, 0.9)), to(rgba(0, 0, 0, 0.1))), url("images/e.png");
+  background-image: linear-gradient(rgba(255, 80, 80, 0.9), rgba(0, 0, 0, 0.1)), url("images/e.png");
+  background-size: content;
+  background-position: bottom;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+/*# sourceMappingURL=style.css.map */

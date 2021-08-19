@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <!-- Bootstrap CSS JQUERY -->
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -14,39 +14,47 @@
 </head>
 
 <body class="">
-    <div class="container vh-100">
+    <div class="container">
         <div class="row">
             <div class="d-flex flex-column">
+                
+                <!-- HEADER -->
                 <div class="rounded mx-auto my-3 bg-warning">
                     <h2 class="fw-bold m-auto p-3 text-center">Nöbetçi Eczane Uygulaması</h2>
                 </div>
-                <div class="d-flex flex-column justify-content-around">
-                    <div class="col mx-auto my-2">
-                        <input class="rounded border border-danger" type="text" id="ilText" placeholder="  İl Giriniz" />
-                    </div>
-                    <div class="col mx-auto my-2">
-                        <input class="rounded border border-danger" type="text" id="ilceText"
-                            placeholder="  İlce Giriniz" />
-                    </div>
+                <!-- HEADER END-->
+                
+                <!-- INPUT FIELDS -->
+                <div class="d-flex flex-column justify-content-around align-items-center">
+                    
+                    <input class="rounded border border-danger mx-auto my-2 w-50 p-2" type="text" id="ilText"
+                        placeholder="  İl Giriniz" required>
+                    <input class="rounded border border-danger mx-auto my-2 w-50 p-2" type="text" id="ilceText"
+                        placeholder="  İlce Giriniz" />
                     <button class="rounded mx-auto my-2 border-secondary px-3" id="il">Tamam</button>
                     <br>
-                    <button class="rounded-pill border border-light bg-danger text-light p-2" id="button1">Nöbetçi Eczaneleri Sırala</button>
+                    <button class="rounded-pill border border-light bg-danger text-light p-2 w-75" id="button1">Nöbetçi
+                        Eczaneleri Sırala</button>
                 </div>
-                <div id="forTable">
+                <!-- INPUT FIELDS END-->
+
+                <!-- TABLE -->
+                <div id="tableFixHead">
                     <table class="table table-striped bg-transparent rounded my-2 overflow-scroll">
-                        <thead>
-                          <tr>
-                            <th>Eczane İsmi</th>
-                          </tr>
+                        <thead class="sticky-top bg-warning">
+                            <tr>
+                                <th>Eczane İsmi</th>
+                            </tr>
                         </thead>
                         <tbody>
                             <!-- ECZANELER -->
                         </tbody>
-                      </table>
+                    </table>
                 </div>
-               
+                <!-- TABLE END-->
+
                 <div class="mx-auto">
-                    <p class="text-dark fw-bold">Nöbetçi eczana sayısı: </p>
+                    <p class="fw-bold">Nöbetçi eczana sayısı: </p>
                 </div>
 
 
@@ -54,6 +62,8 @@
         </div>
     </div>
 
+    <!-- SCRİPT -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
 
         $(document).ready(function () {
@@ -80,7 +90,7 @@
                     success: function (result) {
                         var i = 0;
                         $.each(result.result, function () {
-                            $("tbody").append("<tr><td class='fw-bold'>"+ this.name + "</td></tr>");
+                            $("tbody").append("<tr><td class='fw-bold'>" + this.name + "</td></tr>");
                         })
                         $("p").append(JSON.stringify(result.result.length));
                     }
@@ -89,6 +99,7 @@
         });
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- SCRİPT END-->
 
 </body>
 
